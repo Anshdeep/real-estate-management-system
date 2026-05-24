@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-PlanApplication<plan>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.realestate.plan.PlanApplication",
+            "projectName": "plan",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
