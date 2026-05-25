@@ -5,6 +5,7 @@ import com.realestate.plan.dto.ProjectResponseDTO;
 import com.realestate.plan.entity.Builder;
 import com.realestate.plan.entity.Project;
 import com.realestate.plan.enums.ProjectStatus;
+import com.realestate.plan.exception.DuplicateResourceException;
 import com.realestate.plan.exception.ResourceNotFoundException;
 import com.realestate.plan.repository.BuilderRepository;
 import com.realestate.plan.repository.ProjectRepository;
@@ -34,6 +35,10 @@ public class ProjectServiceImpl implements ProjectService {
         Builder builder = builderRepository.findById(requestDTO.getBuilderId())
                 .filter(b -> !Boolean.TRUE.equals(b.getIsDeleted()))
                 .orElseThrow(() -> new ResourceNotFoundException("Builder not found with ID: " + requestDTO.getBuilderId()));
+
+        if (projectRepository.existsByBuilderIdAndProjectNameAndIsDeletedFalse(builder.getId(), requestDTO.getProjectName())) {
+            throw new DuplicateResourceException("A project with name '" + requestDTO.getProjectName() + "' already exists for builder ID " + builder.getId());
+        }
 
         Project project = mapToEntity(requestDTO);
         project.setProjectCode(generateProjectCode());
@@ -105,6 +110,10 @@ public class ProjectServiceImpl implements ProjectService {
         Builder builder = builderRepository.findById(requestDTO.getBuilderId())
                 .filter(b -> !Boolean.TRUE.equals(b.getIsDeleted()))
                 .orElseThrow(() -> new ResourceNotFoundException("Builder not found with ID: " + requestDTO.getBuilderId()));
+
+        if (projectRepository.existsByBuilderIdAndProjectNameAndIsDeletedFalseAndIdNot(builder.getId(), requestDTO.getProjectName(), project.getId())) {
+            throw new DuplicateResourceException("A project with name '" + requestDTO.getProjectName() + "' already exists for builder ID " + builder.getId());
+        }
 
         updateEntityFromDTO(project, requestDTO);
         project.setBuilder(builder);

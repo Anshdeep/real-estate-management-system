@@ -22,7 +22,7 @@ public class SecurityConfig {
             .csrf(csrf -> csrf.disable())
             .sessionManagement(sm -> sm.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
             .authorizeHttpRequests(authorize -> authorize
-                .requestMatchers("/api/v1/builders/**", "/api/v1/projects/**").permitAll()
+                .requestMatchers("/api/v1/builders/**", "/api/v1/projects/**", "/api/v1/towers/**", "/api/v1/floors/**").permitAll()
                 .anyRequest().authenticated()
             )
             .exceptionHandling(ex -> ex

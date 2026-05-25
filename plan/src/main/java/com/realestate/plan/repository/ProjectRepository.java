@@ -31,6 +31,10 @@ public interface ProjectRepository extends JpaRepository<Project, Long> {
     @EntityGraph(attributePaths = "builder")
     List<Project> findByBuilderIdAndIsDeletedFalse(Long builderId);
 
+    boolean existsByBuilderIdAndProjectNameAndIsDeletedFalse(Long builderId, String projectName);
+
+    boolean existsByBuilderIdAndProjectNameAndIsDeletedFalseAndIdNot(Long builderId, String projectName, Long id);
+
     @EntityGraph(attributePaths = "builder")
     List<Project> findByIsDeletedFalse();
 
