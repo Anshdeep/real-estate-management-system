@@ -72,24 +72,6 @@ public class Floor {
     @JoinColumn(name = "tower_id", nullable = false)
     private Tower tower;
 
-    @Column(length = 300)
-    private String addressLine1;
-
-    @Column(length = 300)
-    private String addressLine2;
-
-    @Column(length = 100)
-    private String city;
-
-    @Column(length = 100)
-    private String state;
-
-    @Column(length = 100)
-    private String country;
-
-    @Column(length = 10)
-    private String pincode;
-
     @Column
     private Double latitude;
 

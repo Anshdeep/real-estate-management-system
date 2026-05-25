@@ -61,12 +61,6 @@ public class FloorServiceImpl implements FloorService {
                 .superBuiltUpArea(dto.getSuperBuiltUpArea())
                 .areaUnit(dto.getAreaUnit())
                 .tower(tower)
-                .addressLine1(dto.getAddressLine1())
-                .addressLine2(dto.getAddressLine2())
-                .city(dto.getCity())
-                .state(dto.getState())
-                .country(dto.getCountry())
-                .pincode(dto.getPincode())
                 .latitude(dto.getLatitude())
                 .longitude(dto.getLongitude())
                 .startDate(dto.getStartDate())
@@ -111,12 +105,6 @@ public class FloorServiceImpl implements FloorService {
         floor.setBuiltUpArea(dto.getBuiltUpArea());
         floor.setSuperBuiltUpArea(dto.getSuperBuiltUpArea());
         floor.setAreaUnit(dto.getAreaUnit());
-        floor.setAddressLine1(dto.getAddressLine1());
-        floor.setAddressLine2(dto.getAddressLine2());
-        floor.setCity(dto.getCity());
-        floor.setState(dto.getState());
-        floor.setCountry(dto.getCountry());
-        floor.setPincode(dto.getPincode());
         floor.setLatitude(dto.getLatitude());
         floor.setLongitude(dto.getLongitude());
         floor.setStartDate(dto.getStartDate());
@@ -201,12 +189,6 @@ public class FloorServiceImpl implements FloorService {
                 .towerId(floor.getTower().getId())
                 .towerCode(floor.getTower().getTowerCode())
                 .towerName(floor.getTower().getTowerName())
-                .addressLine1(floor.getAddressLine1())
-                .addressLine2(floor.getAddressLine2())
-                .city(floor.getCity())
-                .state(floor.getState())
-                .country(floor.getCountry())
-                .pincode(floor.getPincode())
                 .latitude(floor.getLatitude())
                 .longitude(floor.getLongitude())
                 .startDate(floor.getStartDate())

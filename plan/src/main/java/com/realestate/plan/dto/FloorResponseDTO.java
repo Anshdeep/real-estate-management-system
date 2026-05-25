@@ -31,12 +31,6 @@ public class FloorResponseDTO {
     private Long towerId;
     private String towerCode;
     private String towerName;
-    private String addressLine1;
-    private String addressLine2;
-    private String city;
-    private String state;
-    private String country;
-    private String pincode;
     private Double latitude;
     private Double longitude;
     private LocalDate startDate;

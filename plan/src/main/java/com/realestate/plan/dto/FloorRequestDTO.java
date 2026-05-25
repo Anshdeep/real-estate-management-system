@@ -45,24 +45,6 @@ public class FloorRequestDTO {
 
     private AreaUnit areaUnit;
 
-    @Size(max = 300, message = "Address line 1 must not exceed 300 characters")
-    private String addressLine1;
-
-    @Size(max = 300, message = "Address line 2 must not exceed 300 characters")
-    private String addressLine2;
-
-    @Size(max = 100, message = "City must not exceed 100 characters")
-    private String city;
-
-    @Size(max = 100, message = "State must not exceed 100 characters")
-    private String state;
-
-    @Size(max = 100, message = "Country must not exceed 100 characters")
-    private String country;
-
-    @Pattern(regexp = "^[1-9][0-9]{5}$", message = "Invalid pincode")
-    private String pincode;
-
     private Double latitude;
     private Double longitude;
 
